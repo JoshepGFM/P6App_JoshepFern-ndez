@@ -27,7 +27,7 @@
 
             
             
-            <Button x:Name="BtnLogin" Text="Login" FontSize="25" CornerRadius="20" BackgroundColor="#095706" />
+            <Button x:Name="BtnLogin" Text="Login" FontSize="25" CornerRadius="20" BackgroundColor="#095706" Clicked="BtnLogin_Clicked"/>
             
             <Button x:Name="BtnUserSignUp" Text="Sign Up" FontSize="25" CornerRadius="20" Clicked="BtnUserSignUp_Clicked" />
 

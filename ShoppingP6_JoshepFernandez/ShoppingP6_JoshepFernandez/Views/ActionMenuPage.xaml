@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingP6_JoshepFernandez.Views.ActionMenuPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ScrollView>
+
+                <Grid>
+
+                    <Label Text="Select an Action!" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Large" />
+                    
+                    <FlexLayout Wrap="Wrap" JustifyContent="SpaceAround" Direction="Row" AlignContent="Start">
+
+
+                        <Button Text="Create Invoice" HeightRequest="200" WidthRequest="200" FontSize="20" HorizontalOptions="Center" CornerRadius="20" />
+
+                    </FlexLayout>
+
+                </Grid>
+                
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

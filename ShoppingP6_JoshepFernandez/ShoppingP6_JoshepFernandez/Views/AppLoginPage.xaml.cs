@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingP6_JoshepFernandez.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,14 @@ namespace ShoppingP6_JoshepFernandez.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppLoginPage : ContentPage
     {
+
+        UserViewModel va;
+
         public AppLoginPage()
         {
             InitializeComponent();
+
+            this.BindingContext = va = new UserViewModel();
         }
 
         private void CmdWatchPassword(object sender, ToggledEventArgs e)
@@ -32,6 +38,37 @@ namespace ShoppingP6_JoshepFernandez.Views
         private async void BtnUserSignUp_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new UserSignUpPage());
+        }
+
+        private async void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+            bool R = false;
+
+            if (TxtUserName.Text != null && !string.IsNullOrEmpty(TxtUserName.Text.Trim()) &&
+                TxtPassword.Text != null && !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
+            {
+                string u = TxtUserName.Text.Trim();
+                string p = TxtPassword.Text.Trim();
+
+                R = await va.UserAccessValidation(u, p);
+            }
+            else
+            {
+                await DisplayAlert("Validation Error", "Username and password are required", "OK");
+                return;
+            }
+
+            if (R)
+            {
+                //await DisplayAlert(":)", "User OK", "OK");
+
+                await Navigation.PushAsync(new ActionMenuPage());
+                //TODO: mostrar la page de seleccion de acciones en el sisitema
+            }
+            else
+            {
+                await DisplayAlert(":(", "Incorrect Username or Pasword!", "OK");
+            }
         }
     }
 }

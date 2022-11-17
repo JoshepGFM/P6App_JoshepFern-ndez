@@ -31,8 +31,8 @@ namespace ShoppingP6_JoshepFernandez.Models
         public int IduserRole { get; set; }
         public int Idcountry { get; set; }
 
-        public virtual Country IdcountryNavigation { get; set; } = null!;
-        public virtual UserRole IduserRoleNavigation { get; set; } = null!;
+        public virtual Country? IdcountryNavigation { get; set; } = null!;
+        public virtual UserRole? IduserRoleNavigation { get; set; } = null!;
 
         //public virtual ICollection<Invoice> Invoices { get; set; }
         //public virtual ICollection<UserStore> UserStores { get; set; }
@@ -70,6 +70,48 @@ namespace ShoppingP6_JoshepFernandez.Models
                 if (statusCode == HttpStatusCode.Created)
                 {
                     //carga de la info en un json
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                //TODO: guardar estos errores en una bitacora para su posterior analisis
+                throw;
+            }
+
+        }
+
+        public async Task<bool> ValidateLogin()
+        {
+
+            try
+            {
+
+                string RouteSufix = string.Format("Users/ValidateLogin?UserName={0}&UserPassword={1}", 
+                                                  this.Email, this.UserPassword);
+                string FinalURL = Services.CnnToP6API.ProductionURL + RouteSufix;
+
+                RestClient client = new RestClient(FinalURL);
+
+                request = new RestRequest(FinalURL, Method.Get);
+
+                //agregar la info de seguridad del api, en este caso ApiKey
+                request.AddHeader(Services.CnnToP6API.ApiKeyName, Services.CnnToP6API.ApiKeyValue);
+                request.AddHeader(contentType, mimetype);
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                HttpStatusCode statusCode = response.StatusCode;
+
+
+
+                if (statusCode == HttpStatusCode.OK)
+                {
                     return true;
                 }
                 else
