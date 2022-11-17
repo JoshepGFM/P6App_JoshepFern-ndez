@@ -6,19 +6,60 @@
         <StackLayout>
 
             <ScrollView>
-
-                <Grid>
-
-                    <Label Text="Select an Action!" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Large" />
+                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Start">
                     
-                    <FlexLayout Wrap="Wrap" JustifyContent="SpaceAround" Direction="Row" AlignContent="Start">
+                        <Label Text="Select an Action!" 
+                           FontSize="25" Padding="0,10,0,0"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#000000" />
+                     
+                    <Grid RowSpacing="20" ColumnSpacing="20" Padding="0,50,0,0">
 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                        <Button Text="Create Invoice" HeightRequest="200" WidthRequest="200" FontSize="20" HorizontalOptions="Center" CornerRadius="20" />
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    </FlexLayout>
+                        <Button Grid.Row="0" Grid.Column="0" Text="BUY!" 
+                                HeightRequest="150" 
+                                WidthRequest="150" 
+                                FontSize="20" 
+                                HorizontalOptions="Center" 
+                                CornerRadius="20" BackgroundColor="#11710D" />
 
-                </Grid>
+                        <Button Grid.Row="0" Grid.Column="1" Text="Manage Items" 
+                                HeightRequest="150" 
+                                WidthRequest="150" 
+                                FontSize="20" 
+                                HorizontalOptions="Center" 
+                                CornerRadius="20" BackgroundColor="#3AD9C3" />
+
+                        <Button Grid.Row="1" Grid.Column="0" Text="Manage Store" 
+                                HeightRequest="150" 
+                                WidthRequest="150" 
+                                FontSize="20" 
+                                HorizontalOptions="Center" 
+                                CornerRadius="20" BackgroundColor="#B76C29" />
+
+                        <Button Grid.Row="1" Grid.Column="1" Text="User Config" 
+                                HeightRequest="150" 
+                                WidthRequest="150" 
+                                FontSize="20" 
+                                HorizontalOptions="Center" 
+                                CornerRadius="20" BackgroundColor="#3E308C" 
+                                x:Name="BtnUserConfig"
+                                Clicked="BtnUserConfig_Clicked"/>
+
+                    </Grid>
+                    
+                </FlexLayout>
+
+                
                 
             </ScrollView>
             

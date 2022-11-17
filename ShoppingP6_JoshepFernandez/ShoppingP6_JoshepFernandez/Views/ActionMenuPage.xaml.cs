@@ -15,6 +15,12 @@ namespace ShoppingP6_JoshepFernandez.Views
         public ActionMenuPage()
         {
             InitializeComponent();
+
+        }
+
+        private async void BtnUserConfig_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserManagmentPage());
         }
     }
 }

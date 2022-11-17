@@ -69,7 +69,13 @@ namespace ShoppingP6_JoshepFernandez.ViewModels
         }
 
         //funcion para agregart usuario
-        public async Task<bool> AddNewUser(string pName, string pEmail, string pPassword, string pBkpEmail, string pPhoneNumer, int pUserRole = 1, int pContry = 2)
+        public async Task<bool> AddNewUser(string pName, 
+                                           string pEmail, 
+                                           string pPassword, 
+                                           string pBkpEmail, 
+                                           string pPhoneNumer, 
+                                           int pUserRole, 
+                                           int pContry)
         {
             if (IsBusy) return false;
             IsBusy = true;
