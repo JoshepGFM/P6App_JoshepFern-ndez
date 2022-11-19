@@ -135,6 +135,13 @@ namespace ShoppingP6_JoshepFernandez.ViewModels
 
         }
 
+        public async Task<bool> CheckConexion()
+        {
+
+            bool R = await MyUser.ValidateConexion();
+            return R;
+
+        }
 
     }
 }

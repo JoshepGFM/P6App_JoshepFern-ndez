@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -22,6 +23,8 @@ namespace ShoppingP6_JoshepFernandez.Views
             InitializeComponent();
 
             this.BindingContext = va = new UserViewModel();
+
+            TimerConexion();
         }
 
         private void CmdWatchPassword(object sender, ToggledEventArgs e)
@@ -75,6 +78,7 @@ namespace ShoppingP6_JoshepFernandez.Views
             }
             else
             {
+                
                 await DisplayAlert("Validation Error", "Username and password are required", "OK");
                 return;
             }
@@ -88,8 +92,44 @@ namespace ShoppingP6_JoshepFernandez.Views
             }
             else
             {
-                await DisplayAlert(":(", "Incorrect Username or Pasword!", "OK");
+                if (await va.CheckConexion())
+                {
+                    await DisplayAlert(":(", "Incorrect Username or Pasword!", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Validation Error", "There is no connection to the database. Check your connection or contact an administrator", "OK");
+                }
             }
+        }
+
+        private async void Showing_Conexion()
+        {
+            bool R = false;
+            
+            if (await va.CheckConexion())
+            {
+                BtnGaugeC.BackgroundColor = Color.Green;
+            }
+            else
+            {
+                BtnGaugeC.BackgroundColor= Color.Red;
+            }
+            await Task.Delay(500);
+        }
+
+        private void TimerConexion()
+        {
+            var Timer = TimeSpan.FromSeconds(0.5);
+
+            Device.StartTimer(Timer, () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Showing_Conexion();
+                });
+                return true;
+            });
         }
     }
 }

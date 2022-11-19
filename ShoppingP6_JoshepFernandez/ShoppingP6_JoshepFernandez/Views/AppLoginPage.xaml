@@ -6,30 +6,42 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundImageSource="ScreenLogin">
     <ContentPage.Content>
-        <StackLayout Padding="50,20"  VerticalOptions="Center">
+        
+        <StackLayout >
+            <StackLayout HorizontalOptions="End" VerticalOptions="Start" Padding="10,10">
+                
+                <Button x:Name="BtnGaugeC" HeightRequest="10" WidthRequest="10" CornerRadius="50"/>
+                
+            </StackLayout>
+
+            <StackLayout Padding="50,0" VerticalOptions="CenterAndExpand">
 
                 <Entry x:Name="TxtUserName" Placeholder="User Email" FontSize="25" Keyboard="Email"/>
 
-            <StackLayout Padding="0,20,0,50" Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="0,20,0,50" Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand">
 
-                <Entry x:Name="TxtPassword" Placeholder="Password" IsPassword="True" FontSize="25" Keyboard="Default" WidthRequest="260" />
-                
-                
-            <StackLayout>
-                
-                <Switch x:Name="SwWatchPassword" IsToggled="False" Toggled="CmdWatchPassword" />
-                <Label Text="Watch Pass" FontSize="Micro" TextColor="White" HorizontalTextAlignment="Center"/>
+                    <Entry x:Name="TxtPassword" Placeholder="Password" IsPassword="True" FontSize="25" Keyboard="Default" WidthRequest="260" />
 
-                
+
+                    <StackLayout>
+
+                        <Switch x:Name="SwWatchPassword" IsToggled="False" Toggled="CmdWatchPassword" />
+                        <Label Text="Watch Pass" FontSize="Micro" TextColor="White" HorizontalTextAlignment="Center"/>
+
+
+                    </StackLayout>
+
+                </StackLayout>
+
+
+
+                <Button x:Name="BtnLogin" Text="Login" FontSize="25" CornerRadius="20" BackgroundColor="#095706" Clicked="BtnLogin_Clicked"/>
+
+                <Button x:Name="BtnUserSignUp" Text="Sign Up" FontSize="25" CornerRadius="20" Clicked="BtnUserSignUp_Clicked"/>
+
             </StackLayout>
-                
-            </StackLayout>
 
             
-            
-            <Button x:Name="BtnLogin" Text="Login" FontSize="25" CornerRadius="20" BackgroundColor="#095706" Clicked="BtnLogin_Clicked"/>
-            
-            <Button x:Name="BtnUserSignUp" Text="Sign Up" FontSize="25" CornerRadius="20" Clicked="BtnUserSignUp_Clicked" />
 
         </StackLayout>
     </ContentPage.Content>
