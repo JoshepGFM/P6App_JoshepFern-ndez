@@ -85,10 +85,18 @@ namespace ShoppingP6_JoshepFernandez.Views
 
             if (R)
             {
-                //await DisplayAlert(":)", "User OK", "OK");
+                //TODO:cargar info en un objeto global de tipo user (o UserDTO)
+                try
+                {
+                    GlobalObjects.GlobalUser = await va.GetUserData(TxtUserName.Text.Trim());
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", ex.Message, "OK");
+                    return;
+                }
 
                 await Navigation.PushAsync(new ActionMenuPage());
-                //TODO: mostrar la page de seleccion de acciones en el sisitema
             }
             else
             {

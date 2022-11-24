@@ -15,11 +15,37 @@ namespace ShoppingP6_JoshepFernandez.ViewModels
 
         public User MyUser { get; set; }
 
+        public UserDTO MiUsuarioDTO { get; set; }
+
         public UserViewModel()
         {
             MyUserRole = new UserRole();
             MyCountry = new Country();
             MyUser = new User();
+            MiUsuarioDTO= new UserDTO();
+        }
+
+        public async Task<UserDTO> GetUserData(string email)
+        {
+            try
+            {
+                UserDTO user = new UserDTO();
+
+                user = await MiUsuarioDTO.GetUserData(email);
+
+                if (user == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return user;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<List<UserRole>> GetUserRolesList()
@@ -140,6 +166,44 @@ namespace ShoppingP6_JoshepFernandez.ViewModels
 
             bool R = await MyUser.ValidateConexion();
             return R;
+
+        }
+
+        public async Task<bool> UpdateUser(string pName,
+                                           string pEmail,
+                                           string pPassword,
+                                           string pBkpEmail,
+                                           string pPhoneNumer,
+                                           int pUserRole,
+                                           int pContry)
+        {
+            if (IsBusy) return false;
+            IsBusy = true;
+
+            try
+            {
+                MiUsuarioDTO.Nombre = pName;
+                MiUsuarioDTO.CorreoElectronico = pEmail;
+                MiUsuarioDTO.CorreoRespaldo = pBkpEmail;
+                MiUsuarioDTO.NumeroTelefono = pPhoneNumer;
+                MiUsuarioDTO.Contrasennia = pPassword;
+                MiUsuarioDTO.IDRol = pUserRole;
+                MiUsuarioDTO.IDPais = pContry;
+
+                bool R = await MyUser.AddUser();
+
+                return R;
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
 
         }
 

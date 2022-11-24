@@ -57,8 +57,8 @@
             <Picker x:Name="PckUserRole" Title="Select a User Role" BackgroundColor="#DAC8C8" ItemDisplayBinding="{Binding UserRoleDescription}" />
             <Picker x:Name="PckCountry" Title="Select a Country" BackgroundColor="#DAC8C8" ItemDisplayBinding="{Binding CountryName}"/>
 
-            <Button x:Name="BtnApply" Text="Save" Clicked="BtnApply_Clicked" BackgroundColor="Green"/>
-            <Button x:Name="BtnCancel" Text="CANCEL" Clicked="BtnCancel_Clicked" BackgroundColor="DimGray"/>
+            <Button x:Name="BtnApply" Text="Save" Clicked="BtnApply_Clicked" BackgroundColor="Green" CornerRadius="20"/>
+            <Button x:Name="BtnCancel" Text="CANCEL" Clicked="BtnCancel_Clicked" BackgroundColor="DimGray" CornerRadius="20"/>
 
         </StackLayout>
     </ContentPage.Content>
