@@ -1,4 +1,5 @@
-﻿using ShoppingP6_JoshepFernandez.ViewModels;
+﻿using ShoppingP6_JoshepFernandez.Models;
+using ShoppingP6_JoshepFernandez.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace ShoppingP6_JoshepFernandez.Views
@@ -34,6 +36,7 @@ namespace ShoppingP6_JoshepFernandez.Views
             TxtEmailBackUP.Text = GlobalObjects.GlobalUser.CorreoRespaldo;
             TxtPhone.Text = GlobalObjects.GlobalUser.NumeroTelefono;
 
+            
         }
 
         private async void LoadUserRolesList()

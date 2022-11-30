@@ -123,8 +123,8 @@ namespace ShoppingP6_JoshepFernandez.Views
 
                 //seleccionar el ID del Rol de Usuario
                 
-                    UserRole UsrRol = PckUserRole.SelectedItem as UserRole;
-                    int IdRol = UsrRol.IduserRole;
+                    UserRole UserRol = PckUserRole.SelectedItem as UserRole;
+                    int IdRol = UserRol.IduserRole;
                 
                 //Seleccionar el ID de Pais
                 

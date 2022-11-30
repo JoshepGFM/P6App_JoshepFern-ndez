@@ -11,8 +11,8 @@ namespace ShoppingP6_JoshepFernandez.Services
         //ademas se define la infocde API Key necesaria
         //para poder consumir los controladores.
 
-        public static string ProductionURL = "http://192.168.1.109:45455/api/";
-        public static string TestingURL = "http://192.168.1.109:45455/api/";
+        public static string ProductionURL = "http://192.168.1.109:45457/api/";
+        public static string TestingURL = "http://192.168.1.109:45457/api/";
 
 
 

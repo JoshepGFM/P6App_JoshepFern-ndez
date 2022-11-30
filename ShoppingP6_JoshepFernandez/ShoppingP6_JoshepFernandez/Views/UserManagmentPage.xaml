@@ -54,7 +54,7 @@
                 </Entry.Triggers>
             </Entry>
 
-            <Picker x:Name="PckUserRole" Title="Select a User Role" BackgroundColor="#DAC8C8" ItemDisplayBinding="{Binding UserRoleDescription}" />
+            <Picker x:Name="PckUserRole" Title="Select a User Role" BackgroundColor="#DAC8C8" ItemDisplayBinding="{Binding UserRoleDescription}"/>
             <Picker x:Name="PckCountry" Title="Select a Country" BackgroundColor="#DAC8C8" ItemDisplayBinding="{Binding CountryName}"/>
 
             <Button x:Name="BtnApply" Text="Save" Clicked="BtnApply_Clicked" BackgroundColor="Green" CornerRadius="20"/>
