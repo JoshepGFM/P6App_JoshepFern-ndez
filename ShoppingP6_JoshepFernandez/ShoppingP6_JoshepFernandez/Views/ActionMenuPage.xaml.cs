@@ -22,5 +22,10 @@ namespace ShoppingP6_JoshepFernandez.Views
         {
             await Navigation.PushAsync(new UserManagmentPage());
         }
+
+        private async void BtnItemManagment_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InventoryListPage());
+        }
     }
 }

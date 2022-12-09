@@ -37,7 +37,9 @@
                                 WidthRequest="150" 
                                 FontSize="20" 
                                 HorizontalOptions="Center" 
-                                CornerRadius="20" BackgroundColor="#3AD9C3" />
+                                CornerRadius="20" BackgroundColor="#3AD9C3" 
+                                Clicked="BtnItemManagment_Clicked"
+                                x:Name="BtnItemManagment"/>
 
                         <Button Grid.Row="1" Grid.Column="0" Text="Manage Store" 
                                 HeightRequest="150" 
